@@ -59,31 +59,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let urlstring = "https://www.whatsbeef.net/wabz/guide.php?start=" + batchNumber
             guard let url = URL(string: urlstring) else { return }
             
-            /*
-            URLSession.shared.dataTask(with: url) { (data, response, error) in
-                if error != nil {
-                    print(error!.localizedDescription)
-                }
-                
-                guard let data = data else {
-                    print("Error: No data to decode")
-                    return
-                }
-                
-                let decoder = JSONDecoder()
-                let json = try decoder.decode(Response.self, from: data)
-                print(json.shows)
-                print(json.count)
-                
-                /*
-                let json = try? JSONSerialization.jsonObject(with: data, options: [])
-                print(json!)
-                // print(json!["count"]!)
-                */
-                
-                }.resume()
-            */
-            
             let task = URLSession.shared.dataTask(with: url) { data, _, error in
                 guard let data = data, error == nil else {
                     print(error ?? "Unknown error")
@@ -95,18 +70,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     let json = try decoder.decode(Response.self, from: data)
                     print(json.shows)
                     print(json.count)
-                    self.shows = json.shows
-                    
+                    self.shows.append(contentsOf: json.shows)
                 } catch {
                     print(error)
                 }
-                
-                /*
-                let decoder = JSONDecoder()
-                let json = try decoder.decode(Response.self, from: data)
-                print(json.shows)
-                print(json.count)
-                */
  
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -128,6 +95,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         return 100
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row + 1 == self.shows.count {
+            print("reached the end")
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
