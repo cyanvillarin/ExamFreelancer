@@ -15,6 +15,8 @@
 		D8EA7B8F210F088B00A2797E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8EA7B8D210F088B00A2797E /* LaunchScreen.storyboard */; };
 		D8EA7B9A210F088C00A2797E /* ExamFreelancerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA7B99210F088C00A2797E /* ExamFreelancerTests.swift */; };
 		D8EA7BA5210F088C00A2797E /* ExamFreelancerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA7BA4210F088C00A2797E /* ExamFreelancerUITests.swift */; };
+		D8EA7BB5210F0C2F00A2797E /* ViewControllerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA7BB4210F0C2F00A2797E /* ViewControllerCell.swift */; };
+		D8EA7BB7210F127F00A2797E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA7BB6210F127F00A2797E /* Reachability.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		D8EA7BA0210F088C00A2797E /* ExamFreelancerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExamFreelancerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8EA7BA4210F088C00A2797E /* ExamFreelancerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamFreelancerUITests.swift; sourceTree = "<group>"; };
 		D8EA7BA6210F088C00A2797E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D8EA7BB4210F0C2F00A2797E /* ViewControllerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerCell.swift; sourceTree = "<group>"; };
+		D8EA7BB6210F127F00A2797E /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +104,9 @@
 			isa = PBXGroup;
 			children = (
 				D8EA7B81210F088B00A2797E /* AppDelegate.swift */,
+				D8EA7BB6210F127F00A2797E /* Reachability.swift */,
 				D8EA7B83210F088B00A2797E /* ViewController.swift */,
+				D8EA7BB4210F0C2F00A2797E /* ViewControllerCell.swift */,
 				D8EA7B85210F088B00A2797E /* Main.storyboard */,
 				D8EA7B8B210F088B00A2797E /* Assets.xcassets */,
 				D8EA7B8D210F088B00A2797E /* LaunchScreen.storyboard */,
@@ -261,6 +267,8 @@
 			files = (
 				D8EA7B84210F088B00A2797E /* ViewController.swift in Sources */,
 				D8EA7B8A210F088B00A2797E /* ExamFreelancer.xcdatamodeld in Sources */,
+				D8EA7BB5210F0C2F00A2797E /* ViewControllerCell.swift in Sources */,
+				D8EA7BB7210F127F00A2797E /* Reachability.swift in Sources */,
 				D8EA7B82210F088B00A2797E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
