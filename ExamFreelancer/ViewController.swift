@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var shows: Array<Show> = []
+    var batch: String = "0"
     @IBOutlet weak var tableView: UITableView!
     
     struct Response: Decodable {
@@ -54,9 +55,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if ReachabilityTest.isConnectedToNetwork() {
             print("Internet connection available")
             
-            let batchNumber = "0"
-            
-            let urlstring = "https://www.whatsbeef.net/wabz/guide.php?start=" + batchNumber
+            let urlstring = "https://www.whatsbeef.net/wabz/guide.php?start=" + self.batch
             guard let url = URL(string: urlstring) else { return }
             
             let task = URLSession.shared.dataTask(with: url) { data, _, error in
@@ -98,8 +97,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row + 1 == self.shows.count {
-            print("reached the end")
+        let lastSectionIndex = tableView.numberOfSections - 1
+        let lastRowIndex = tableView.numberOfRows(inSection: lastSectionIndex) - 1
+        if indexPath.section ==  lastSectionIndex && indexPath.row == lastRowIndex {
+            let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+            spinner.startAnimating()
+            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(0), width: tableView.bounds.width, height: CGFloat(44))
+            
+            self.tableView.tableFooterView = spinner
+            self.tableView.tableFooterView?.isHidden = false
+            
+            self.batch = String(Int(self.batch)! + 1)
+            print("Batch: " + self.batch)
+            getJSONData()
         }
     }
     
@@ -107,10 +117,26 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! ViewControllerCell
         
         let show = self.shows[indexPath.row]
-        cell.cellTitle.text = show.name
-        cell.cellSchedule.text = show.start_time + " - " + show.end_time
-        cell.cellStation.image = UIImage(named: show.channel)
-        cell.cellRating.image = UIImage(named: show.rating)        
+        cell.Name.text = show.name
+        cell.Schedule.text = show.start_time + " - " + show.end_time
+        cell.Channel.image = UIImage(named: show.channel)
+        
+        let newY = cell.frame.size.height * 0.387096774193548
+        var newX: CGFloat
+        
+        if (show.rating == ""){
+            cell.Rating.image = UIImage(named: "NR")
+            newX = cell.frame.size.width * 0.717333333333333
+        }
+        else {
+            cell.Rating.image = UIImage(named: show.rating)
+            newX = cell.frame.size.width * 0.872
+        }
+        
+        let scaledWidth = (cell.Rating.image?.size.width)! * 0.5
+        let scaledHeight = (cell.Rating.image?.size.height)! * 0.5
+        
+        cell.Rating.frame = CGRect(x: newX, y: newY, width: scaledWidth, height: scaledHeight)
         
         return cell
     }

@@ -52,44 +52,44 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFi-GX-Gc6">
-                                                    <rect key="frame" x="81" y="21" width="228" height="21"/>
+                                                    <rect key="frame" x="81" y="26" width="228" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="Criminal Minds">
                                                             <attributes>
-                                                                <font key="NSFont" size="20" name="HelveticaNeue-Bold"/>
+                                                                <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWx-5S-OVe">
-                                                    <rect key="frame" x="81" y="48" width="228" height="21"/>
+                                                    <rect key="frame" x="81" y="47" width="228" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <attributedString key="attributedText">
                                                         <fragment content="8:45 PM to 10:00 PM">
                                                             <attributes>
-                                                                <font key="NSFont" size="17" name="HelveticaNeue-Light"/>
+                                                                <font key="NSFont" size="12" name="HelveticaNeue-Light"/>
                                                             </attributes>
                                                         </fragment>
                                                     </attributedString>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="PG" translatesAutoresizingMaskIntoConstraints="NO" id="jNT-sZ-J3N">
-                                                    <rect key="frame" x="320" y="30" width="40" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="7Mate" translatesAutoresizingMaskIntoConstraints="NO" id="pxt-aR-5Wp">
-                                                    <rect key="frame" x="15" y="18" width="50" height="50"/>
+                                                    <rect key="frame" x="15" y="22" width="50" height="50"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="htl-Jj-FeG">
+                                                    <rect key="frame" x="286" y="34" width="74" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="cellRating" destination="jNT-sZ-J3N" id="Ewt-Ti-ZWb"/>
-                                            <outlet property="cellSchedule" destination="jWx-5S-OVe" id="Uav-cD-41w"/>
-                                            <outlet property="cellStation" destination="pxt-aR-5Wp" id="5el-qi-cFv"/>
-                                            <outlet property="cellTitle" destination="EFi-GX-Gc6" id="6mS-ey-SsF"/>
+                                            <outlet property="Channel" destination="pxt-aR-5Wp" id="D0v-DN-0LX"/>
+                                            <outlet property="Name" destination="EFi-GX-Gc6" id="gOO-gU-I0f"/>
+                                            <outlet property="Rating" destination="htl-Jj-FeG" id="Nf1-Ed-njI"/>
+                                            <outlet property="Schedule" destination="jWx-5S-OVe" id="aPU-Yj-PBg"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -113,6 +113,5 @@
     </scenes>
     <resources>
         <image name="7Mate" width="80" height="80"/>
-        <image name="PG" width="71" height="36"/>
     </resources>
 </document>

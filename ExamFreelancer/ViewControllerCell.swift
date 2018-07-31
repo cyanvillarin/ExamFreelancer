@@ -9,8 +9,8 @@
 import UIKit
 
 class ViewControllerCell: UITableViewCell {
-    @IBOutlet var cellStation: UIImageView!
-    @IBOutlet var cellRating: UIImageView!
-    @IBOutlet var cellTitle: UILabel!
-    @IBOutlet var cellSchedule: UILabel!
+    @IBOutlet var Channel: UIImageView!
+    @IBOutlet var Rating: UIImageView!
+    @IBOutlet var Name: UILabel!
+    @IBOutlet var Schedule: UILabel!
 }
