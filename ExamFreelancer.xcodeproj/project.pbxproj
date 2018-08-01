@@ -107,9 +107,9 @@
 			children = (
 				D8EA7B81210F088B00A2797E /* AppDelegate.swift */,
 				D8EA7BB6210F127F00A2797E /* Reachability.swift */,
-				D82569D2211138C8004282CA /* DetailsController.swift */,
 				D8EA7B83210F088B00A2797E /* ViewController.swift */,
 				D8EA7BB4210F0C2F00A2797E /* ViewControllerCell.swift */,
+				D82569D2211138C8004282CA /* DetailsController.swift */,
 				D8EA7B85210F088B00A2797E /* Main.storyboard */,
 				D8EA7B8B210F088B00A2797E /* Assets.xcassets */,
 				D8EA7B8D210F088B00A2797E /* LaunchScreen.storyboard */,

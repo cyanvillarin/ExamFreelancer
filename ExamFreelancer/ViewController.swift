@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var tableView: UITableView!
     
+    // structs for JSONDecoder
     struct Response: Decodable {
         let count: NSInteger
         let shows: [Show]
@@ -43,8 +44,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.delegate = self
         tableView.dataSource = self
+        
         getJSONData()
     }
     
@@ -67,13 +70,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let decoder = JSONDecoder()
                 do {
                     let json = try decoder.decode(Response.self, from: data)
+                    
                     // print(json.shows)
                     // print(json.count)
+                    
                     self.shows.append(contentsOf: json.shows)
                 } catch {
                     print(error)
                 }
  
+                // reload tableview when the app finishes getting data from the API
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
