@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D82569D3211138C8004282CA /* DetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82569D2211138C8004282CA /* DetailsController.swift */; };
 		D8EA7B82210F088B00A2797E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA7B81210F088B00A2797E /* AppDelegate.swift */; };
 		D8EA7B84210F088B00A2797E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA7B83210F088B00A2797E /* ViewController.swift */; };
 		D8EA7B87210F088B00A2797E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8EA7B85210F088B00A2797E /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D82569D2211138C8004282CA /* DetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsController.swift; sourceTree = "<group>"; };
 		D8EA7B7E210F088B00A2797E /* ExamFreelancer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExamFreelancer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8EA7B81210F088B00A2797E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8EA7B83210F088B00A2797E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			children = (
 				D8EA7B81210F088B00A2797E /* AppDelegate.swift */,
 				D8EA7BB6210F127F00A2797E /* Reachability.swift */,
+				D82569D2211138C8004282CA /* DetailsController.swift */,
 				D8EA7B83210F088B00A2797E /* ViewController.swift */,
 				D8EA7BB4210F0C2F00A2797E /* ViewControllerCell.swift */,
 				D8EA7B85210F088B00A2797E /* Main.storyboard */,
@@ -269,6 +272,7 @@
 				D8EA7B8A210F088B00A2797E /* ExamFreelancer.xcdatamodeld in Sources */,
 				D8EA7BB5210F0C2F00A2797E /* ViewControllerCell.swift in Sources */,
 				D8EA7BB7210F127F00A2797E /* Reachability.swift in Sources */,
+				D82569D3211138C8004282CA /* DetailsController.swift in Sources */,
 				D8EA7B82210F088B00A2797E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

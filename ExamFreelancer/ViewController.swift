@@ -12,6 +12,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var shows: Array<Show> = []
     var batch: String = "0"
+    
     @IBOutlet weak var tableView: UITableView!
     
     struct Response: Decodable {
@@ -44,7 +45,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
         getJSONData()
     }
     
@@ -54,7 +54,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         if ReachabilityTest.isConnectedToNetwork() {
             print("Internet connection available")
-            
+
             let urlstring = "https://www.whatsbeef.net/wabz/guide.php?start=" + self.batch
             guard let url = URL(string: urlstring) else { return }
             
@@ -67,8 +67,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 let decoder = JSONDecoder()
                 do {
                     let json = try decoder.decode(Response.self, from: data)
-                    print(json.shows)
-                    print(json.count)
+                    // print(json.shows)
+                    // print(json.count)
                     self.shows.append(contentsOf: json.shows)
                 } catch {
                     print(error)
@@ -79,12 +79,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 }
             }
             task.resume()
-            
-            
         }
         else{
             print("No internet connection available")
         }
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Tonight"
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -110,6 +112,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             self.batch = String(Int(self.batch)! + 1)
             print("Batch: " + self.batch)
             getJSONData()
+        }
+    }
+    
+    func tableView(_ collectionView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "homeToDetails", sender: indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "homeToDetails"{
+            let selectedIndexPath = sender as! NSIndexPath
+            
+            let dvc = segue.destination as! DetailsController
+            let show = self.shows[selectedIndexPath.row]
+            
+            dvc.name = show.name
+            dvc.schedule = show.start_time + " - " + show.end_time
+            dvc.channel = show.channel
+            dvc.rating = show.rating
         }
     }
     
@@ -148,7 +168,4 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
-
 }
-
